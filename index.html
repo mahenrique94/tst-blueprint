@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blueprint</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="toolbar" id="toolbar">
+      <div class="toolbar-nodes">
+        <button data-node="variable">Add variable node</button>
+        <button data-node="print">Add print node</button>
+      </div>
+      <div class="toolbar-actions">
+        <button data-action="compile">Compile</button>
+        <button data-action="run">Run</button>
+      </div>
+    </div>
+
+    <div class="editor">
+      <canvas class="editor-canvas" id="editor"></canvas>
+      <pre class="editor-output" id="output"></pre>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

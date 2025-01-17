@@ -1,0 +1,76 @@
+:root {
+  --color-primary: #18181b;
+  --color-primary-alt: #f4f4f5;
+}
+
+* {
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-primary);
+}
+
+:is(button, a):hover {
+  cursor: pointer;
+}
+
+:is(h1, h2, h3, h4, h5, h6, p) {
+  color: var(--color-primary-alt);
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+canvas {
+  background-color: #e4e4e7;
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.toolbar button {
+  background-color: #0ea5e9;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.toolbar button:hover {
+  background-color: #0284c7;
+}
+
+.toolbar-nodes {
+  display: flex;
+  gap: 1rem;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: 1fr 375px;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 67px);
+  width: 100vw;
+}
+
+.editor-canvas {
+  height: 100%;
+  width: 100%;
+}
+
+.editor-output {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  margin: 0;
+}
