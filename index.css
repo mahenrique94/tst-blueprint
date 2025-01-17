@@ -71,6 +71,18 @@ canvas {
 
 .editor-output {
   background-color: #f1f5f9;
+  border-left: 1px solid #dcdcdc;
   padding: 1rem;
   margin: 0;
+}
+
+input {
+  border: 1px solid #d4d4d8;
+  color: #3f3f46;
+  padding: 0.5rem 1rem;
+}
+
+input:focus {
+  border-color: #0099ff;
+  outline: none;
 }

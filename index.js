@@ -12,6 +12,7 @@ editor.width = window.innerWidth - output.offsetWidth;
 
 const NODE_HEIGHT = 100;
 const NODE_WIDTH = 200;
+const CONNECTOR_SIZE = 10;
 
 let draggingNode = null;
 let currentMousePos = null;
@@ -110,7 +111,7 @@ function drawConnectionPreview() {
   if (isConnecting && startNode && currentMousePos) {
     ctx.beginPath();
     ctx.moveTo(
-      startNode.x + startNode.width,
+      startNode.x + startNode.width + CONNECTOR_SIZE,
       startNode.y + startNode.height / 2
     );
     ctx.lineTo(currentMousePos.x, currentMousePos.y);
@@ -125,8 +126,11 @@ function drawConnections() {
     if (node.links.length > 0) {
       node.links.forEach((link) => {
         ctx.beginPath();
-        ctx.moveTo(link.x + link.width, link.y + link.height / 2);
-        ctx.lineTo(node.x, node.y + node.height / 2);
+        ctx.moveTo(
+          link.x + link.width + CONNECTOR_SIZE,
+          link.y + link.height / 2
+        );
+        ctx.lineTo(node.x - CONNECTOR_SIZE, node.y + node.height / 2);
         ctx.strokeStyle = "#000";
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -195,7 +199,7 @@ class PrintNode extends Node {
 
   drawConnector() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y + this.height / 2, 10, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y + this.height / 2, CONNECTOR_SIZE, 0, Math.PI * 2);
     ctx.fillStyle = this.connected > 0 ? "#22c55e" : "#cbd5e1";
     ctx.fill();
     ctx.stroke();
@@ -249,7 +253,13 @@ class VariableNode extends Node {
 
   drawConnector() {
     ctx.beginPath();
-    ctx.arc(this.x + this.width, this.y + this.height / 2, 10, 0, Math.PI * 2);
+    ctx.arc(
+      this.x + this.width,
+      this.y + this.height / 2,
+      CONNECTOR_SIZE,
+      0,
+      Math.PI * 2
+    );
     ctx.fillStyle = this.connected > 0 ? "#22c55e" : "#cbd5e1";
     ctx.fill();
     ctx.stroke();
